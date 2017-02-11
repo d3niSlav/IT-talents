@@ -1,0 +1,52 @@
+div,
+header,
+section,
+footer {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 640px;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 100px;
+    background-color: #497E7E;
+}
+
+.content {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 350px;
+}
+
+#left_section {
+    width: 29%;
+    min-height: 350px;
+    float: left;
+    background-color: #D700AC;
+}
+
+#right_section {
+    width: 69%;
+    min-height: 350px;
+    float: right;
+    background-color: #49FF00;
+}
+
+footer {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-height: 100px;
+    background-color: #0049FF;
+}
