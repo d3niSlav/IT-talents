@@ -1,0 +1,73 @@
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 0.7em;
+    line-height: 130%;
+    margin: 1em 410px;
+}
+
+header>h3 {
+    font-size: 140%;
+    display: block;
+    padding: 0.4em 1em;
+    color: #FFF;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    font-size: 140%;
+    background-color: #4483C7;
+    margin: 0;
+}
+
+#description {
+    display: block;
+    float: left;
+    font-size: 130%;
+    font-weight: bold;
+    margin: 1em 1em 0.5em;
+    padding: 0 0 0.5em;
+}
+
+.article {
+    background-color: #FFFFEE;
+    border: 1px solid #538620;
+    clear: both;
+    display: block;
+    margin: 1em;
+}
+
+.article h3 {
+    background-color: #538620;
+    border-bottom-width: 0;
+    color: #FFF;
+    display: block;
+    font-size: 110%;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.3em 0.5em;
+}
+
+.article>.description {
+    display: block;
+    float: none;
+    margin: 0;
+    text-align: left;
+    padding: 0.2em 0.5em 0.4em;
+    color: black;
+    font-size: 100%;
+    font-weight: normal;
+}
+
+.article>.date {
+    color: #666;
+    display: block;
+    font-size: 86%;
+    padding: 0 0.5em;
+    margin: 0;
+}
+
+.article>a {
+    color: #666;
+    display: block;
+    font-size: 86%;
+    padding: 0 0.5em 0.5em;
+    text-decoration: none;
+}
