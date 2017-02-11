@@ -1,0 +1,40 @@
+#wrapper {
+    margin: 10px 10px;
+}
+
+header {
+    margin-bottom: 10px;
+    background-color: #336666;
+    height: 100px;
+}
+
+.content {
+    margin: 10px auto;
+    padding: 0 50px;
+}
+
+section {
+    background-color: #008000;
+    height: 200px;
+}
+
+footer {
+    margin: 10px auto;
+    height: 40px;
+}
+
+#left_footer {
+    margin-left: 10px;
+    background-color: #800080;
+    float: right;
+    width: 49%;
+    height: 40px;
+}
+
+#right_footer {
+    margin-right: 10px;
+    background-color: #0000ff;
+    float: left;
+    width: 49%;
+    height: 40px;
+}
