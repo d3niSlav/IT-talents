@@ -1,0 +1,44 @@
+#wrapper {
+    margin: 10px 40px;
+}
+
+header {
+    margin: 10px auto;
+    background-color: #000000;
+    height: 30px;
+}
+
+.content {
+    margin: 10px auto;
+    height: 400px;
+}
+
+#middle_section {
+    margin: auto 10px;
+    background-color: #008000;
+    float: left;
+    width: 50%;
+    height: 400px;
+}
+
+#left_section {
+    margin-right: 10px;
+    background-color: #800080;
+    float: left;
+    width: 23%;
+    height: 400px;
+}
+
+#right_section {
+    margin-left: 10px;
+    background-color: #ff0000;
+    float: right;
+    width: 23%;
+    height: 400px;
+}
+
+footer {
+    margin: 10px auto;
+    height: 30px;
+    background-color: #0000ff;
+}
