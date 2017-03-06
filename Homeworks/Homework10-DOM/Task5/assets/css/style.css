@@ -33,8 +33,20 @@ body {
     background-color: white;
 }
 
+.title button {
+    float: right;
+    background-color: #E1E8EE;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #5E6977;
+    font-style: italic;
+    margin-right: 35px;
+}
+
 #list-items {
     margin-top: 60px;
+    margin-bottom: 5px;
     overflow-y: scroll;
 }
 
@@ -47,9 +59,23 @@ body {
     border-bottom: 1px solid #E1E8EE;
 }
 
+.button {
+    position: relative;
+    padding-top: 30px;
+    margin-right: 5px;
+}
+
+.delete-btn {
+    display: inline-block;
+    Cursor: pointer;
+    width: 18px;
+    height: 17px;
+    background: url("../images/delete-icn.svg") no-repeat center;
+}
+
 .image {
     width: 200px;
-    margin-right: 20px;
+    margin-right: 10px;
     text-align: center;
 }
 
@@ -72,7 +98,22 @@ body {
 }
 
 .quantity {
-    padding-top: 30px;
+    padding-top: 20px;
+}
+
+.quantity input {
+    border: none;
+    text-align: center;
+    width: 60px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .quantity span {
@@ -82,6 +123,28 @@ body {
     color: #43484D;
     font-weight: 300;
     padding-left: 20px
+}
+
+button[class*=btn] {
+    width: 30px;
+    height: 30px;
+    background-color: #E1E8EE;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.minus-btn img {
+    margin-bottom: 3px;
+}
+
+.plus-btn img {
+    margin-top: 2px;
+}
+
+button:focus,
+input:focus {
+    outline: 0;
 }
 
 @media (max-width: 768px) {

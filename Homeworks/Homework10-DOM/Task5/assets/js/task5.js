@@ -1,6 +1,28 @@
+// Да се направи количка с продукти - при добавяне/махане - да се рефрешва на екрана.
+
+function emptyCart() {
+    var items = document.getElementById('list-items');
+
+    while (items.firstChild) {
+        items.removeChild(items.firstChild);
+    }
+}
+
 function addProduct(product) {
     var newItemContainer = document.createElement('div')
     newItemContainer.className = "item";
+
+    var buttonRemoveContainer = document.createElement('div');
+    buttonRemoveContainer.className = "button";
+
+    var deleteButton = document.createElement('span');
+    deleteButton.className = "delete-btn";
+    deleteButton.addEventListener("click", function() {
+        deleteButton.closest("div.item").remove();
+    }, false);
+
+    buttonRemoveContainer.appendChild(deleteButton);
+    newItemContainer.appendChild(buttonRemoveContainer);
 
     var itemImageContainer = document.createElement('div');
     itemImageContainer.className = "image";
@@ -25,48 +47,81 @@ function addProduct(product) {
 
     var itemQuantityContainer = document.createElement('div');
     itemQuantityContainer.className = "quantity";
-    node = document.createTextNode("Quantity:");
-    itemQuantityContainer.appendChild(node);
 
-    var itemQuantity = document.createElement('span');
-    itemQuantity.className = "quantity";
-    node = document.createTextNode(product.quantity);
-    itemQuantity.appendChild(node);
+    var plusButton = document.createElement('button');
+    plusButton.className = "plus-btn";
+    plusButton.type = "button";
+    plusButton.name = "button";
+    plusButton.addEventListener("click", function() {
+        quantityInput.value = (parseInt(quantityInput.value) + 1);
+        product.quantity++;
+    }, false);
 
-    itemQuantityContainer.appendChild(itemQuantity);
+    var plusImage = document.createElement('img');
+    plusImage.alt = "+";
+    plusImage.src = "assets/images/plus.svg";
+
+    plusButton.appendChild(plusImage);
+    itemQuantityContainer.appendChild(plusButton);
+
+    var minusButton = document.createElement('button');
+    minusButton.className = "minus-btn";
+    minusButton.type = "button";
+    minusButton.name = "button";
+    minusButton.addEventListener("click", function() {
+        if (parseInt(quantityInput.value) > 1) {
+            quantityInput.value = (parseInt(quantityInput.value) - 1);
+            product.quantity--;
+        }
+    }, false);
+
+    var quantityInput = document.createElement('input');
+    quantityInput.type = "number";
+    quantityInput.name = "quantity";
+    quantityInput.value = product.quantity;
+
+    itemQuantityContainer.appendChild(quantityInput);
+
+    var minusImage = document.createElement('img');
+    minusImage.alt = "-";
+    minusImage.src = "assets/images/minus.svg";
+
+    minusButton.appendChild(minusImage);
+    itemQuantityContainer.appendChild(minusButton);
+
     newItemContainer.appendChild(itemQuantityContainer);
 
     document.getElementById("list-items").appendChild(newItemContainer);
 }
 
-var item = {
+var cake = {
     name: "Cake",
     quantity: 10,
     imageUrl: "assets/images/cake.png"
 }
 
-addProduct(item);
+addProduct(cake);
 
-item = {
+var banitsa = {
     name: "Banitsa",
     quantity: 1,
     imageUrl: "assets/images/banitsa.png"
 }
 
-addProduct(item);
+addProduct(banitsa);
 
-item = {
+var salad = {
     name: "Salad",
     quantity: 52,
     imageUrl: "assets/images/salad.png"
 }
 
-addProduct(item);
+addProduct(salad);
 
-item = {
+var cremeBrulee = {
     name: "Crème brûlée",
     quantity: 13,
     imageUrl: "assets/images/cremeBrulee.png"
 }
 
-addProduct(item);
+addProduct(cremeBrulee);
