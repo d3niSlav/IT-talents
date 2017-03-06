@@ -1,0 +1,54 @@
+body {
+    background: black;
+    text-align: center;
+}
+
+.input-box {
+    margin: 100px auto 25px;
+    width: 600px;
+}
+
+#btn-submit {
+    margin-top: 10px;
+    padding: 10px 25px;
+    display: inline-block;
+    color: black;
+    background-color: white;
+    border: 1px solid #fff;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.input-fields input {
+    height: 50px;
+    font-size: 25px;
+    margin: 5px;
+    width: 100%;
+}
+
+#result-box {
+    margin: 10px auto;
+    width: 500px;
+}
+
+#result-box p {
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+    width: 100%;
+}
+
+.top {
+    border-radius: 10px;
+    border: 5px solid;
+    border-color: darkblue;
+}
+
+.bottom {
+    border-radius: 10px;
+    border: 5px solid;
+    border-color: darkred;
+}

@@ -1,0 +1,28 @@
+<!--Да се създаде функция, която да създава елемент 'div' с дадени деца.-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <script>
+        function createElements() {
+            var parent = document.createElement("div");
+            var elements = Array.prototype.slice.call(arguments);
+
+            for (var index = 0; index < elements.length; index++) {
+                parent.appendChild(document.createElement(arguments[index]));
+            }
+
+            document.body.appendChild(parent);
+        }
+
+        createElements("div", "p", "div", "img");
+    </script>
+</body>
+
+</html>

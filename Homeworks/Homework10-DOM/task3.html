@@ -1,0 +1,36 @@
+<!-- Да се създаде функция, която по даден масив с елементи ги създава и ги пъха в див.-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <script>
+        function createElements() {
+            document.body.appendChild(createDiv.apply(null, arguments));
+        }
+
+        function createDiv() {
+            var div = document.createElement("div");
+            var elements = Array.prototype.slice.call(arguments);
+
+            for (var index = 0; index < elements.length; index++) {
+                if (Array.isArray(elements[index])) {
+                    div.appendChild(createDiv.apply(null, elements[index]));
+                    continue;
+                }
+                div.appendChild(document.createElement(arguments[index]));
+            }
+
+            return div;
+        }
+
+        createElements("div", "p", ["img", "div"], "span");
+    </script>
+</body>
+
+</html>
