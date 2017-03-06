@@ -9,12 +9,45 @@
 
 <body>
     <div class="shopping-cart">
-        <div class="title">
-            Shopping Cart
-            <button onclick="emptyCart()">Empty cart</button>
-            <!-- <button>Add item</button> -->
-        </div>
-        <div id="list-items"></div>
+        <section id="main">
+            <div class="title">
+                Shopping Cart
+                <button onclick="emptyCart()">Empty cart</button>
+                <button onclick="openAddNewItem()">Add item</button>
+            </div>
+            <div id="list-items"></div>
+        </section>
+        <section id="add-item-container" style="display: none">
+            <div class="title">
+                Add new item
+                <button onclick="backToCart()">Back to cart</button>
+            </div>
+            <form id="add-item-form">
+                <div class="input-field">
+                    <label for="name">Product name:</label>
+                    <input id="name" type="text">
+                </div>
+                <div class="input-field">
+                    <label for="quantity">Quantity</label>
+                    <div class="quantity-scale">
+                        <button class="plus-btn" type="button" name="button" onclick="buttonPlus()">
+                            <img alt="+" src="assets/images/plus.svg">
+                        </button>
+                        <input id="quantity" type="number" value="1" min="1">
+                        <button class="minus-btn" type="button" name="button" onclick="buttonMinus()">
+                            <img alt="-" src="assets/images/minus.svg">
+                        </button>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <label for="imageUrl">Image URL:</label>
+                    <input id="imageUrl" type="text">
+                </div>
+            </form>
+            <div id="add-button">
+                <button onclick="addNewProductToCart()">Add to cart</button>
+            </div>
+        </section>
     </div>
     <script src="assets/js/task5.js"></script>
 </body>

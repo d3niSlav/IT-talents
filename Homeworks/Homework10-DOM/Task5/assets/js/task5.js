@@ -1,5 +1,29 @@
 // Да се направи количка с продукти - при добавяне/махане - да се рефрешва на екрана.
 
+function openAddNewItem() {
+    document.getElementById('main').style.display = "none";
+    document.getElementById('add-item-container').style.display = "block";
+}
+
+function backToCart() {
+    document.getElementById('main').style.display = "block";
+    document.getElementById('add-item-container').style.display = "none";
+}
+
+function buttonPlus() {
+    var quantityInput = document.getElementById('quantity');
+    quantityInput.value = (parseInt(quantityInput.value) + 1);
+
+}
+
+function buttonMinus() {
+    var quantityInput = document.getElementById('quantity');
+    if (parseInt(quantityInput.value) > 1) {
+        quantityInput.value = (parseInt(quantityInput.value) - 1);
+    }
+
+}
+
 function emptyCart() {
     var items = document.getElementById('list-items');
 
@@ -94,34 +118,44 @@ function addProduct(product) {
     document.getElementById("list-items").appendChild(newItemContainer);
 }
 
-var cake = {
-    name: "Cake",
-    quantity: 10,
-    imageUrl: "assets/images/cake.png"
+function addNewProductToCart() {
+    var name = document.getElementById('name').value;
+    var imageUrl = document.getElementById('imageUrl').value;
+    var quantity = document.getElementById('quantity').value;
+
+    if (name == "") {
+        alert("Enter correct name for the product!");
+        return;
+    }
+
+    if (imageUrl == "") {
+        alert("Enter correct URL for the image destination!");
+        return;
+    }
+
+    var product = new Product(name, imageUrl, quantity);
+    addProduct(product);
+
+    document.getElementById('name').value = "";
+    document.getElementById('imageUrl').value = ""
+    document.getElementById('quantity').value = 1;
+    backToCart();
 }
 
+function Product(name, imageUrl, quantity) {
+    this.name = name;
+    this.imageUrl = imageUrl;
+    this.quantity = quantity || 1;
+}
+
+var cake = new Product("Cake", "assets/images/cake.png", 10);
 addProduct(cake);
 
-var banitsa = {
-    name: "Banitsa",
-    quantity: 1,
-    imageUrl: "assets/images/banitsa.png"
-}
-
+var banitsa = new Product("Banitsa", "assets/images/banitsa.png");
 addProduct(banitsa);
 
-var salad = {
-    name: "Salad",
-    quantity: 52,
-    imageUrl: "assets/images/salad.png"
-}
-
+var salad = new Product("Salad", "assets/images/salad.png", 18);
 addProduct(salad);
 
-var cremeBrulee = {
-    name: "Crème brûlée",
-    quantity: 13,
-    imageUrl: "assets/images/cremeBrulee.png"
-}
-
+var cremeBrulee = new Product("Crème brûlée", "assets/images/cremeBrulee.png", 53);
 addProduct(cremeBrulee);
