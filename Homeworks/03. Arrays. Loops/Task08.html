@@ -1,0 +1,50 @@
+<!--
+    Задача 8:
+    Напишете програма, която намира и извежда най-дългата редица от
+    еднакви поредни елементи в даден масив.
+    Пример:
+    Въведете елементите на масива:
+    2,1,1,2,3,3,2,2,2,1
+    Максималната редица е: 2 2 2
+-->
+
+<script>
+    var inputRegex = new RegExp(/^(-?\d+)(\s*,\s*-?\d+)*$/);
+    do {
+        var inputString = String(prompt("Enter the array\nExample: 2,1,1,2,3,3,2,2,2,1"));
+    } while (!inputRegex.test(inputString));
+
+    var arrayData = inputString.split(",");
+    var array = new Array(arrayData.length);
+    for (var index = 0; index < arrayData.length; index++) {
+        array[index] = parseInt(arrayData[index]);
+    }
+
+    var maximumRepeatSequence = 1;
+    var startingIndex = 0;
+
+    var element = 0;
+    while (element < array.length - 1) {
+        var tempCounter = 1;
+        var tempBeginingIndex = element;
+        
+        for (var index = element; index < array.length - 1; index++) {
+            if (array[index] == array[index + 1]) {
+                tempCounter++;
+            } else {
+                tempBeginingIndex = element;
+                element = index + 1;
+                break;
+            }
+        }
+
+        if (tempCounter > maximumRepeatSequence) {
+            maximumRepeatSequence = tempCounter;
+            startingIndex = tempBeginingIndex;
+        }
+    }
+
+    var result = "The longest sequence in the array is " + maximumRepeatSequence + " characters long.";
+    result += "\nContent: " + array.slice(startingIndex, startingIndex + maximumRepeatSequence);
+    alert(result);
+</script>

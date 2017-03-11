@@ -1,0 +1,40 @@
+<!--
+    Задача 7:
+    Напишете програма, която първо чете масив и после създава нов
+    масив със същия размер по следния начин: стойността на всеки
+    елемент от втория масив да е равна на сбора от предходния и
+    следващият елемент на съответния елемент от първия масив.
+    Да се изведе получения масив.
+
+    Пример:
+    Въведете размер на масива: 4
+    Въведете елементите на масива:
+    2
+    3
+    -11
+    7
+    Полученият масив е: {3, -9, 10, -11}
+-->
+
+<script>
+    do {
+        var number = parseInt(prompt("Enter a number for the length of the array:"));
+    } while (isNaN(number));
+    var array = new Array(number);
+
+    for (var index = 0; index < array.length; index++) {
+        do {
+            array[index] = parseInt(prompt("Enter value for element " + (index + 1) + " : "));
+        } while (isNaN(number));
+    }
+
+    var newArray = new Array(array.length);
+    newArray[0] = array[1];
+    newArray[newArray.length - 1] = array[array.length - 2];
+
+    for (var index = 1; index < array.length - 1; index++) {
+        newArray[index] = array[index - 1] + array[index + 1];
+    }
+
+    alert(newArray);
+</script>

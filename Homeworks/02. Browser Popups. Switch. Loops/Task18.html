@@ -1,0 +1,35 @@
+<!--
+    Задача 18: Да се състави програма, чрез която се въвеждат 
+    две числа от интервала [1..9]
+
+    Програмата да извежда таблицата за умножение.
+    Максималната стойност на множителите е определена от 2-те
+    числа.
+    
+    Пример: 2 2
+    Изход:
+    1*1= 1;
+    1*2= 2;
+    2*1= 2;
+    2*2= 4;
+-->
+
+<script>
+    var result = "";
+
+    do {
+        var firstNumber = parseInt(prompt("Enter the first number [1..9]"));
+    } while (isNaN(firstNumber) || firstNumber < 1 || firstNumber > 9);
+
+    do {
+        var secondNumber = parseInt(prompt("Enter the second number [1..9]"));
+    } while (isNaN(secondNumber) || secondNumber < 1 || secondNumber > 9);
+
+    for (var multiplier = 1; multiplier <= firstNumber; multiplier++) {
+        for (var factor = 1; factor <= secondNumber; factor++) {
+            result += multiplier + " * " + factor + " = " + multiplier * factor + "\n";
+        }
+    }
+
+    alert(result);
+</script>

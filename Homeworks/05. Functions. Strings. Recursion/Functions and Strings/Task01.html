@@ -1,0 +1,30 @@
+<!--
+    Задача 1:
+    Да се състави програма, чрез която се въвеждат два низа съдържащи до 40
+    главни и малки букви.
+    Като резултат на екрана да се извеждат низовете само с главни и само с
+    малки букви.
+    Пример: Abcd Efgh
+    Изход: ABCD abcd EFGH efgh
+-->
+
+<script>
+    var onlyLettersPattern = /^[a-zA-Z]+$/;
+
+    do {
+        var stringOne = prompt("Enter the first string (only letters [a-z], [1 - 40 characters]):");
+    } while (stringOne.length > 40 || stringOne.length < 0 || !onlyLettersPattern.test(stringOne));
+
+    do {
+        var stringTwo = prompt("Enter the second string (only letters [a-z], [1 - 40 characters]):");
+    } while (stringTwo.length > 40 || stringTwo.length < 0 || !onlyLettersPattern.test(stringTwo));
+
+    var result = "";
+
+    result += stringOne.toUpperCase() + " ";
+    result += stringOne.toLowerCase() + " ";
+    result += stringTwo.toUpperCase() + " ";
+    result += stringTwo.toLowerCase();
+
+    alert(result);
+</script>

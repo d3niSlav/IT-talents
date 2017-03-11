@@ -1,0 +1,28 @@
+<!--
+    Задача 6: Да се прочете число от екрана(конзолата) и да се
+    изведе сбора на всички числа между 1 и въведеното число.
+        
+    Въдете число:
+    7
+    Резултата е 28
+-->
+
+<script>
+    var sum = 0;
+
+    do {
+        var number = parseInt(prompt("Enter a number"));
+    } while (isNaN(number));
+
+    if (number > 0) {
+        for (var iterator = 1; iterator <= number; iterator++) {
+            sum += iterator;
+        }
+    } else {
+        for (var iterator = number; iterator <= 1; iterator++) {
+            sum += iterator;
+        }
+    }
+    
+    alert("Sum from 1 to " + number + " : " + sum);
+</script>

@@ -1,0 +1,34 @@
+<!--
+    Задача 13:
+    Да се състави програма, чрез която се въвежда число и се представя
+    като число в двоична бройна система.
+    Програмата, чрез масив, да изчислява последователно всички цифри
+    на въведеното естествено число в 2-ична бройна система.
+    Пример: 99
+    Изход: 1100011
+-->
+
+<script>
+    do {
+        var number = parseInt(prompt("Enter a number:"));
+    } while (isNaN(number) || number < 0);
+
+    var binaryArray = new Array();
+    
+    var result = "";
+
+    while(number > 0) {
+        if (number % 2 == 0) {
+            binaryArray.unshift(0);
+        } else {
+            binaryArray.unshift(1);
+        }
+        number = parseInt(number / 2);
+    }
+
+    for (var index = 0; index < binaryArray.length; index++) {
+        result += binaryArray[index];
+    }
+
+    alert(result);
+</script>

@@ -1,0 +1,22 @@
+<!--
+    Задача 25:
+    Да се направи програма, която по дадено число N, да изчислява
+    N!, т.е. 1*2*3*4...*N.
+    Пример: 5
+    Изход: 120
+    Използвайте цикъл do-while. 
+-->
+
+<script>
+    do {
+        var number = parseInt(prompt("Enter a number [N > 0]"));
+    } while (isNaN(number) || number < 1);
+
+    var result = 1;
+    do {
+        result *= number;
+        number--;
+    } while (number > 0);
+
+    alert(result);
+</script>

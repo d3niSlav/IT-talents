@@ -1,0 +1,24 @@
+<!--
+    Задача 14: Да се състави програма, която по въведено
+    естествено число N от интервала [10..200] извежда в обратен
+    ред всички числа, които са кратни на 7 и са по-малки от N.
+-->
+
+<script>
+    var result = "";
+
+    do {
+        var number = parseInt(prompt("Enter a number [10..200]"));
+    } while (isNaN(number) || number < 10 || number > 200);
+
+    for (var iterator = number; iterator > 0; iterator--) {
+        if (iterator % 7 == 0 && iterator < number) {
+            if (result.length != 0) {
+                result += ", ";
+            }
+            result += iterator;
+        }
+    }
+
+    alert(result);
+</script>

@@ -1,0 +1,48 @@
+<!--
+    Задача 9: Да се прочетат 2 числа от клавиатурата А и В.
+    Да се изведат всички числа от А до В на степен 2(разделени с
+    запетая).Ако някое число е кратно на 3, да се изведе съобщение че
+    числото се пропуска „skip 3“.Ако сумата от всички изведени числа (без
+    пропуснатите) стане по-голяма от 200, да се прекрати извеждането.
+    Пример:
+    Въдете А:
+    1
+    Въведете B
+    107
+    1, 4, skip 3, 16, 25, skip 6, 49, 64, skip 9, 100
+-->
+
+<script>
+    var result = "";
+
+    do {
+        var a = parseInt(prompt("Enter number A (A > 0)"));
+    } while (isNaN(a) || a < 1);
+
+    do {
+        var b = parseInt(prompt("Enter number B (B > A)"));
+    } while (isNaN(b) || b <= a);
+
+    if (a < b) {
+        firstNumber = a;
+        secondNumber = b;
+    } else {
+        firstNumber = b;
+        secondNumber = a;
+    }
+
+    for (var number = firstNumber, sum = 0; number <= secondNumber && sum < 200; number++) {
+        if (number != firstNumber) {
+            result += ", ";
+        }
+
+        if (number % 3 == 0) {
+            result += "skip " + number;
+        } else {
+            result += (number * number);
+            sum += (number * number);
+        }
+    }
+
+    alert(result);
+</script>

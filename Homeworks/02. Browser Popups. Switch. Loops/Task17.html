@@ -1,0 +1,42 @@
+<!--
+    Да се състави програма, която извежда квадрат, чийто страни са
+    оформени със знака *, а вътрешността е запълнена със въведен
+    знак.
+
+    Входни данни b - дължина на страната число от интервала
+    [3..20], c - желан знак.
+
+    Програмата да използва цикъл for.
+    
+    Пример: 4 +
+    Изход:
+    ****
+    *++*
+    *++*
+    ****
+-->
+
+<script>
+    var result = "";
+
+    do {
+        var height = parseInt(prompt("Enter the square height [3..20]"));
+    } while (isNaN(height) || height < 3 || height > 20);
+
+    do {
+        var symbol = prompt("Enter the desired symbol for fill");
+    } while (symbol == "" || symbol.length > 1);
+
+    for (var row = 1; row <= height; row++) {
+        for (column = 1; column <= height; column++) {
+            if (row != 1 && row != height && column != 1 && column != height) {
+                result += symbol + " ";
+            } else {
+                result += "* ";
+            }
+        }
+        result += "\n";
+    }
+
+    alert(result);
+</script>

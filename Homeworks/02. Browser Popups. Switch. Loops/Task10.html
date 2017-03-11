@@ -1,0 +1,27 @@
+<!--
+    Задача 10: Въведете число от клавиатурата и определете дали е
+    просто. Просто число е това което се дели САМО на 1 и на себе
+    си.
+-->
+
+<script>
+    do {
+        var number = parseInt(prompt("Enter a number:"));
+    }
+    while (isNaN(number));
+
+    var isPrime = true;
+
+    for (var divisor = 2; divisor < number; divisor++) {
+        if (number % divisor == 0 && divisor != number) {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if (isPrime) {
+        alert("Number " + number + " is prime!");
+    } else {
+        alert("Number " + number + " is NOT prime!");
+    }
+</script>

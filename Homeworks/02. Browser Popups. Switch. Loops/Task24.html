@@ -1,0 +1,32 @@
+<!--
+    Задача 24:
+    Едно число X е палиндром, aко се чете еднакво отпред назад и
+    отзад напред.
+    Да се състави програма, която проверява дали въведено число е
+    палиндром.
+    Входни данни: N - естествено число от интервала [10 .. 30000].
+    Пример: 17571
+    Изход: числото е палиндром
+    Използвайте цикъл do-while.
+-->
+
+<script>
+    var result = "";
+
+    do {
+        var number = parseInt(prompt("Enter a number [10..30000]"));
+    } while (isNaN(number) || number < 10 || number > 30000);
+
+    var reverseNumber = 0;
+    var positionDigit = number;
+    do {
+        reverseNumber = (reverseNumber * 10) + positionDigit % 10;
+        positionDigit = parseInt(positionDigit / 10);
+    } while (positionDigit != 0);
+
+    if (reverseNumber == number) {
+        alert("The number " + number + " is a palindrome.");
+    } else {
+        alert("The number " + number + " is NOT a palindrome.");
+    }
+</script>

@@ -1,0 +1,171 @@
+<!--
+-->
+<html>
+
+<head>
+    <title> Add employee - Task1 </title>
+    <script>
+        var fromYear = 1900;
+        var toYear = 2017;
+
+        function addDate(name) {
+            var element = document.getElementById(name + "_month");
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octomber", "November", "December"];
+            for (var index = 0; index < months.length; index++) {
+                var option = document.createElement('option');
+                option.value = option.text = months[index];
+                option.name = "month";
+                element.add(option);
+            }
+
+            element = document.getElementById(name + "_day");
+            for (var index = 1; index <= 31; index++) {
+                var option = document.createElement('option');
+                option.value = option.text = index;
+                option.name = "day";
+                element.add(option);
+            }
+
+            element = document.getElementById(name + "_year");
+            for (var index = toYear; index >= fromYear; index--) {
+                var option = document.createElement('option');
+                option.value = option.text = index;
+                option.name = "year";
+                element.add(option);
+            }
+        }
+
+        function addManagers() {
+            var element = document.getElementById("manager");
+            var managers = ["Andrew Fuller", "Nikolay Tomitov", "Krasimir Stoev"];
+            for (var index = 0; index < managers.length; index++) {
+                var option = document.createElement('option');
+                option.value = option.text = managers[index];
+                option.name = "manager";
+                element.add(option);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Add Employee</h1>
+    </br>
+    <form action method="POST">
+        <table>
+            <tr>
+                <td><label for="firstname">First name:</label></td>
+                <td><input type="text" name="firstname" id="firstname" placeholder="Enter first name"></td>
+            </tr>
+            <tr>
+                <td><label for="lastname">Last name:</label></td>
+                <td><input type="text" name="lastname" id="lastname" placeholder="Enter last name"></td>
+            </tr>
+            <tr>
+                <td><label for="title">Title:</label></td>
+                <td><input type="text" name="title" id="title" placeholder="Enter title"></td>
+            </tr>
+            <tr>
+                <td><label for="courtesy">Title of Courtesy:</label>
+                </td>
+                <td>
+                    <input type="radio" name="courtesy" value="doctor" checked>
+                    <label for="doctor">Dr.</label>
+                    <input type="radio" name="courtesy" value="mister">
+                    <label for="mister">Mr.</label>
+                    <input type="radio" name="courtesy" value="mistress">
+                    <label for="mistress">Mrs.</label>
+                    <input type="radio" name="courtesy" value="miss">
+                    <label for="miss">Ms.</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="birth_date">Birth date:</label></td>
+                <td>
+                    <div id="birth_date">
+                        <select id="birth_month" name="birth_month"></select>
+                        <select id="birth_day" name="birth_day"></select>
+                        <select id="birth_year" name="birth_year"></select>
+                        <script>
+                            addDate("birth");
+                        </script>
+                        <!-- Alternative : <input type="date" name="birth_date" id="birth_date">-->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="hire_date">Hire Date:</label></td>
+                <td>
+                    <div id="hire_date">
+                        <select id="hire_month" name="hire_month"></select>
+                        <select id="hire_day" name="hire_day"></select>
+                        <select id="hire_year" name="hire_year"></select>
+                        <script>
+                            addDate("hire");
+                        </script>
+                        <!-- Alternative : <input type="date" name="hire_date" id="hire_date">-->
+                    </div>
+            </tr>
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><input type="text" name="address" id="address" placeholder="Enter address"></td>
+            </tr>
+            <tr>
+                <td><label for="city">City:</label></td>
+                <td><input type="text" name="city" id="city" placeholder="Enter city"></td>
+            </tr>
+            <tr>
+                <td><label for="region">Region:</label></td>
+                <td><input type="text" name="region" id="region" placeholder="Enter region"></td>
+            </tr>
+            <tr>
+                <td><label for="postal_code">Postal Code:</label></td>
+                <td><input type="text" name="postal_code" id="postal_code" placeholder="Enter postal code"></td>
+            </tr>
+            <tr>
+                <td><label for="country">Country:</label></td>
+                <td><input type="text" name="country" id="country" placeholder="Enter country"></td>
+            </tr>
+            <tr>
+                <td><label for="home_phone">Home Phone:</label></td>
+                <td><input type="text" name="home_phone" id="home_phone" placeholder="Enter home phone"></td>
+            </tr>
+            <tr>
+                <td><label for="extention">Extention:</label></td>
+                <td><input type="text" name="extention" id="extention" placeholder="Enter extention"></td>
+            </tr>
+            <tr>
+                <td><label for="notes">Notes:</label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea style="width: 100%;" id="notes" name="notes" placeholder="Write some notes"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="manager">Manager:</label></td>
+                <td><select id="manager" name="manager"></select>
+                    <script>
+                        addManagers();
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" name="password" id="password" placeholder="**********"></td>
+            </tr>
+            <tr>
+                <td><label for="repeat_password">Repeat Password:</label></td>
+                <td><input type="password" name="repeat_password" id="repeat_password" placeholder="**********"></td>
+            </tr>
+        </table>
+        <button type="submit" onclick="sendData()">Add employee</button>
+        <script>
+            function sendData() {
+                alert("Employer added.");
+            }
+        </script>
+    </form>
+</body>
+
+</html>

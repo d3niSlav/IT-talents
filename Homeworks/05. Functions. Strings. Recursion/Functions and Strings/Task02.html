@@ -1,0 +1,52 @@
+<!--
+    Задача 2:
+    Да се състави програма, чрез която от клавиатурата се въвеждат
+    последователно две думи с дължина 10-20 знака.
+    Програмата да размени първите им 5 знака и да изведе дължината на по-
+    дългата, както и новото им съдържание.
+    Пример: uchilishe uchenik
+    Изход: 9 uchenishe
+-->
+
+<script>
+    const LENGTH_FOR_CHANGE = 5;
+    const LETTERS_PATTERN = /^[a-zA-Z]+$/;
+
+    do {
+        var input = prompt("Enter two words, separated with a space [5-20 characters per word]");
+        input = input.trim();
+
+        var words = input.split(" ");
+        var firstWord = words[0];
+        var secondWord = words[1];
+    } while (words.length != 2 || !checkWord(firstWord || checkWord(secondWord)));
+
+    swapCharacters(firstWord, secondWord);
+
+    var longestWord = getLongestWord(firstWord, secondWord);
+    alert(longestWord.length + " " + longestWord);
+
+    function checkWord(word) {
+        if (word.length < 5 || word.length > 20) {
+            return false;
+        } else {
+            return LETTERS_PATTERN.test(word);
+        }
+    }
+
+    function swapCharacters() {
+        var nCharactersOfFirstWord = firstWord.slice(0, LENGTH_FOR_CHANGE);
+        var nCharactersOfSecondWord = secondWord.slice(0, LENGTH_FOR_CHANGE);
+
+        firstWord = nCharactersOfSecondWord + firstWord.slice(LENGTH_FOR_CHANGE, firstWord.length);
+        secondWord = nCharactersOfFirstWord + secondWord.slice(LENGTH_FOR_CHANGE, secondWord.length);
+    }
+
+    function getLongestWord(word1, word2) {
+        if (word1.length > word2.length) {
+            return word1;
+        } else {
+            return word2
+        }
+    }
+</script>

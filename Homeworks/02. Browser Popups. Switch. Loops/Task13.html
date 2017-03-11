@@ -1,0 +1,32 @@
+<!--
+    Задача 13: Да се състави програма, която извежда всички
+    естествени трицифрени числа, които имат сбор на цифрите равен
+    на дадено число.
+    Дадено : sum, където 2>=sum<=27.
+    Пример: 26
+    Изход: 899, 989, 998.
+-->
+
+<script>
+    var result = "";
+
+    do {
+        var number = parseInt(prompt("Enter a number [2..27]"));
+    } while (isNaN(number) || number < 2 || number > 27);
+
+    for (var testNumber = 100; testNumber <= 999; testNumber++) {
+        var ones = Math.floor(testNumber % 10);
+        var tens = Math.floor(testNumber / 10 % 10);
+        var hundreds = Math.floor(testNumber / 100 % 10);
+
+        var sum = ones + tens + hundreds;
+        if (sum == number) {
+            if (result.length != 0) {
+                result += ", ";
+            }
+            result += testNumber;
+        }
+    }
+
+    alert(result);
+</script>

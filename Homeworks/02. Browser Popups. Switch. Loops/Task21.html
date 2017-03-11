@@ -1,0 +1,36 @@
+<!--
+    Задача 21:
+    Дадено е наредено тесте карти.
+    Наредбата по тежест на карта е: 2,3,4,5,6,7,8,9,10, Вале, Дама, Поп, Асо.
+    Наредбата по цвят на картите е: спатия, каро, купа, пика.
+    Да се създаде програма, чрез която се въвежда N - число от
+    интервала [1..51] и се извеждат въведения номер карта и
+    останалите по-големи карти от тестето.
+    Пример: 47.
+    Изход: Поп купа, Поп пика, Асо спатия, Асо каро, Асо купа, Асо пика
+-->
+<script>
+    var result = "";
+    do {
+        var number = parseInt(prompt("Enter a number [1..51]"));
+    } while (isNaN(number) || number < 1 || number > 99);
+
+    var suits = ["Спатия", "Каро", "Купа", "Пика"];
+    var ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Вале", "Дама", "Поп", "Асо"];
+    var deck = [];
+
+    for (var suit = 0; suit < 4; suit++) {
+        for (var rank = 0, position = suit; rank < 13; rank++ , position += 4) {
+            deck[position] = ranks[rank] + " " + suits[suit];
+        }
+    }
+
+    for (var iterator = number - 1; iterator < deck.length; iterator++) {
+        if (result.length != 0) {
+            result += ", ";
+        }
+        result += deck[iterator];
+    }
+
+    alert(result);
+</script>

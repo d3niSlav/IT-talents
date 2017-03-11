@@ -1,0 +1,38 @@
+<!--
+    Задача 5: Да се въведат от потребителя 2 числа. И да се изведат
+    на екрана всички числа от по-малкото до по-голямото.
+
+    Въведете първото число:
+    12
+    Въведете второто число:
+    15
+    12 13 14 15
+-->
+
+<script>
+    var beginNumber;
+    var endNumber;
+    var result = ""; 
+
+    do{
+        var firstNumber = parseInt(prompt("Enter the first number"));
+    } while (isNaN(firstNumber));
+    
+    do{
+        var secondNumber = parseInt(prompt("Enter the second number"));
+    } while (isNaN(secondNumber) || secondNumber == firstNumber);
+
+    if(firstNumber < secondNumber){ 
+        beginNumber = firstNumber;
+        endNumber = secondNumber;
+    } else {
+        beginNumber = secondNumber;
+        endNumber = firstNumber;
+    }
+
+    for(var number = beginNumber; number <= endNumber; number++){
+        result += number + " ";
+    }
+
+    alert(result);
+</script>

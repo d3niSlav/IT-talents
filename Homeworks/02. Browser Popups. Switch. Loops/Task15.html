@@ -1,0 +1,24 @@
+<!--
+    Задача 15: Да се състави програма, която да изчисли сумата на всички
+    числа от 1 до въведено число N.
+    Пример: 5
+    Изход: 15
+
+    Използвайте цикъл do-while.
+-->
+
+<script>
+    var sum = 0;
+
+    do {
+        var n = parseInt(prompt("Enter number (n > 0)"));
+    } while (isNaN(n) || n < 1);
+
+    var number = 0;
+    do {
+        number++;
+        sum += number;
+    } while (number < n);
+
+    alert("The sum of the first " + n + " numbers is " + sum);
+</script>

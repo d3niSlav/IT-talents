@@ -1,0 +1,45 @@
+<!--
+    Задача 16:
+    Да се състави програма, чрез която се въвеждат 2 естествени
+    числа N, M от интервала [10..5555].
+    Програмата, чрез цикъл for, да извежда всички числа от
+    интервала, които са кратни на 50 в низходящ ред.
+    Пример: 25,249
+    Изход: 200,150,100, 50.
+-->
+
+<script>
+/* 
+    Ако използвам методите .replace и .split в браузъра получавам error : 'името на метода' is not a function(…)
+    За това ще въведа N и M в два отделни prompt-а
+    Иначе кода на JavaScript за разделяне на цифрите от примерен вход "12, 52" е следния
+
+        var range = "12, 52";
+        var rangeData = (range.replace(" ", "")).split(",");
+        var n = parseInt(rangeData[0]);
+        var m = parseInt(rangeData[1]);
+*/ 
+
+    var result = "";
+
+    do {
+        var n = parseInt(prompt("Enter N [10..5554]"));
+    } while (isNaN(n) || n < 10 || n > 5554);
+
+    do {
+        var m = parseInt(prompt("Enter M [11..5555]"));
+    } while (isNaN(m) || m < 10 || m > 5555 || n >= m);
+
+    for (var number = m; number >= n; number--) {
+        if (number % 50 == 0) {
+            result += number;
+            if (number != Math.floor((n + 49) / 50) * 50) {
+                result += ", ";
+            } else {
+                result += "."
+            }
+        }
+    }
+
+    alert(result);
+</script>

@@ -1,0 +1,50 @@
+<!--
+    Задача 4:
+    Да се прочете масив и да се отпечата дали е огледален.
+    Следните масиви са огледални:
+    [3 7 7 3]
+    [4]
+    [1 55 1]
+    [6 27 -1 5 7 7 5 -1 27 6]
+
+    Въведете размер за масива: 5
+    Въведете 1-я елемент:
+    10
+    Въведете 2-я елемент:
+    66
+    Въведете 3-я елемент:
+    1
+    Въведете 4-я елемент:
+    66
+    Въведете 5-я елемент:
+    10
+    Масива е огледален
+-->
+
+<script>
+    do {
+        var number = parseInt(prompt("Enter a number for the length of the array:"));
+    } while (isNaN(number));
+
+    var array = new Array(number);
+    var isItMirror = true;
+
+    for (var index = 0; index < array.length; index++) {
+        do {
+            array[index] = parseInt(prompt("Enter value for element " + (index + 1) + " : "));
+        } while (isNaN(number));
+    }
+
+    for (var index = 0; index < array.length / 2; index++) {
+        if (array[index] != array[array.length - 1 - index]) {
+            isItMirror = false;
+            break;
+        }
+    }
+
+    if (isItMirror) {
+        alert("The array is a mirror!");
+    } else {
+        alert("The array is NOT a mirror!");
+    }
+</script>

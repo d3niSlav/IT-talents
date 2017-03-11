@@ -1,0 +1,34 @@
+<!--
+    Задача 3:
+    Да се въведе число, след което да се създаде масив с 10
+    елемента по следния начин:
+    Първите 2 елемента на масива са въведеното число.
+    Всеки следващ елемент на масива е равен на сбора от
+    предишните 2 елемента в масива.
+    След това изведете масива.
+
+    Въведете число: 1
+    1 1 2 3 5 8 13 21 34 55
+-->
+
+<script>
+    do {
+        var number = parseInt(prompt("Enter a number:"));
+    } while (isNaN(number));
+
+    var array = new Array(10);
+    array[0] = number;
+    array[1] = number;
+
+    var result = "";
+
+    for (var index = 2; index < array.length; index++) {
+        array[index] = array[index - 1] + array[index - 2];
+    }
+
+    for (var index = 0; index < array.length; index++) {
+        result += array[index] + " ";
+    }
+
+    alert(result);
+</script>

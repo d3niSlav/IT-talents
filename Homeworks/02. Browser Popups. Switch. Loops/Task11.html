@@ -1,0 +1,61 @@
+<!--
+    Задача 11: Въведете число N, чрез уеб форма и изкарайте като
+    резултат следния триъгълник с височина N:
+          *
+         ***
+        *****
+
+    Кaто допълнително упражнение – нарисувайте същия
+    триъгълник, но незапълнен.
+-->
+
+<script>
+    do {
+        var height = parseInt(prompt("Enter height for the triangle:"));
+    }
+    while (isNaN(height) || height < 1);
+
+    var result = "";
+
+    for (var row = 1; row <= height; row++) {
+        for (var column = 1; column <= height; column++) {
+            if (column >= height - row + 1 || row == height) {
+                result += "* ";
+            } else {
+                result += "  ";
+            }
+        }
+        for (var column = height - 1; column <= row + height - 3; column++) {
+            if (column <= row + height - 3 || row == height) {
+                result += "* ";
+            } else {
+                result += "  ";
+            }
+        }
+        result += "\n";
+    }
+    result += "Filled isoscale triangle\n";
+
+    result += "\n" + new Array(height * 2).join("..") + "\n\n";
+
+    for (var row = 1; row <= height; row++) {
+        for (var column = 1; column <= height; column++) {
+            if (column == height - row + 1 || row == height) {
+                result += "* ";
+            } else {
+                result += "  ";
+            }
+        }
+        for (var column = height - 1; column <= row + height - 3; column++) {
+            if (column >= row + height - 3 || row == height) {
+                result += "* ";
+            } else {
+                result += "  ";
+            }
+        }
+        result += "\n";
+    }
+    result += "Empty isoscale triangle\n";
+
+    alert(result);
+</script>

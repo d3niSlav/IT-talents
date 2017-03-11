@@ -1,0 +1,37 @@
+<!--
+    Задача 11:
+    Да се състави програма, която въвежда от клавиатурата 7 цели числа
+    в едномерен масив
+    Програмата да изведе всички числа кратни на 5, но по големи от 5.
+    Пример: -23, -55, 17, 75, 56, 105, 134
+    Изход: 75, 105 2 числа
+-->
+
+<script>
+    var inputRegex = new RegExp(/^(-?\d+)(\s*,\s*-?\d+){6}/);
+    var result = "";
+
+    do {
+        var inputString = String(prompt("Enter exactly SEVEN whole numbers for an array:\nExample: -23, -55, 17, 75, 56, 105, 134"));
+    } while (!inputRegex.test(inputString));
+
+    var arrayData = inputString.split(",");
+    var array = new Array(arrayData.length);
+    for (var index = 0; index < arrayData.length; index++) {
+        array[index] = parseInt(arrayData[index]);
+    }
+    var count = 0;
+
+    for (var index = 0; index < array.length; index++) {
+        if(array[index] % 5 == 0 && array[index] > 5){
+            if(result.length != 0){
+            result += ", "
+        }
+        result += array[index];
+            count++;
+        }
+    }
+    result += " - общо " + count + " числа";
+
+    alert(result);
+</script>

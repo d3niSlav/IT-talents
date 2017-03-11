@@ -1,0 +1,25 @@
+<!--
+    Задача 7: Започвайки от 3, да се изведат на екрана първите n
+    числа които се делят на 3. Числата да са разделени със запетая.
+
+    Въведете n:
+    5
+    3,6,9,12,15
+-->
+
+<script>
+    var result = "";
+
+    do {
+        var number = parseInt(prompt("Enter number (n > 0)"));
+    } while (isNaN(number) || number < 1);
+
+    for (var iterator = 1, newNumber = 3; iterator <= number; iterator++) {
+        result += (newNumber * iterator);
+        if (iterator != number) {
+            result += ", "
+        }
+    }
+
+    alert(result);
+</script>

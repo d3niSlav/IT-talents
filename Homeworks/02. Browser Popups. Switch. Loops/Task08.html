@@ -1,0 +1,28 @@
+<!--
+    Задача 8: По зададено число n, да се изведе на екрана таблица по
+    следния начин:
+
+    Въведете n:    Въведете n:    Въведете n:    Въведете n:
+    1              2              3              4
+    0              11             222            3333
+                   33             444            5555
+                                  666            7777
+                                                 9999
+-->
+
+<script>
+    var result = "";
+
+    do {
+        var number = parseInt(prompt("Enter number (n > 0)"));
+    } while (isNaN(number) || number < 1);
+
+    for (var row = 0, newNumber = number - 1; row < number; row++ , newNumber += 2) {
+        for (var repeat = 0; repeat < number; repeat++) {
+            result += newNumber;
+        }
+        result += "\n";
+    }
+
+    alert(result);
+</script>

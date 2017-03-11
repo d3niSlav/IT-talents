@@ -1,0 +1,58 @@
+<!--
+    Задача 6:
+    Напишете програма, която първо чете 2 масива и после извежда
+    съобщение дали са еднакви, и дали са с еднакъв размер.
+
+    Въведете елементите на първия масив:
+    13,2,7
+    Въведете елементите на втория масив:
+    13,5,7
+    Масивите са различни.
+    Масивите имат еднакъв размер.
+-->
+
+<script>
+    var inputRegex = new RegExp(/^(-?\d+)(\s*,\s*-?\d+)*$/);
+
+    do {
+        var arrayData = String(prompt("Enter the first array\nExample: 13,2,7"));
+    } while (!inputRegex.test(arrayData));
+    var firstArray = convertStringToArray(arrayData);
+
+    do {
+        var arrayData = String(prompt("Enter the second array\nExample: 13,2,7"));
+    } while (!inputRegex.test(arrayData));
+    var secondArray = convertStringToArray(arrayData);
+
+    var result = "";
+    if (firstArray.length == secondArray.length) {
+        var equal = true;
+        for (var index = 0; index < firstArray.length; index++) {
+            if (firstArray[index] != secondArray[index]) {
+                equal = false;
+                break;
+            }
+        }
+
+        if (equal) {
+            result += "The arrays are the same.\n";
+        } else {
+            result += "The arrays are different.\n";
+        }
+        result += "The arrays have the same lengths!";
+    } else {
+        result += "The arrays are different.\n";
+        result += "The arrays have different length!";
+    }
+
+    alert(result);
+
+    function convertStringToArray(inputString) {
+        var arrayData = inputString.split(",");
+        var array = new Array(arrayData.length);
+        for (var index = 0; index < arrayData.length; index++) {
+            array[index] = parseInt(arrayData[index]);
+        }
+        return array;
+    }
+</script>
